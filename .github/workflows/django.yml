@@ -30,4 +30,4 @@ jobs:
               env:
                     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
               with:
-                    args: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been tested successfully. Sender: {{ EVENT_PAYLOAD.sender.name }}-{{ EVENT_PAYLOAD.sender.id }} Test"
+                    args: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been tested successfully. Sender: {{ EVENT_PAYLOAD.sender.login }}-{{ EVENT_PAYLOAD.sender.id }} Test"
