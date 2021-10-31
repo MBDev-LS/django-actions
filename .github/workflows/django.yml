@@ -26,8 +26,8 @@ jobs:
               run: |
                   python dactions/manage.py test
             - name: Success Notification
-              uses: tokorom/action-slack-incoming-webhook@main
+              uses: Ilshidur/action-discord@master
               env:
-                    INCOMING_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
               with:
-                    text: ":heavy_check_mark: Build success - Deploy -  Server - TEST - Azure Web pps CI/CD. :heavy_check_mark:"
+                    text: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been tested successfully."
