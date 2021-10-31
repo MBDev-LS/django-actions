@@ -25,10 +25,9 @@ jobs:
             - name: Run Tests
               run: |
                   python dactions/manage.py test
-            - name: notify of success
-                if: ${{ success() }}
-                uses: tokorom/action-slack-incoming-webhook@main
-                env:
+            - name: Success Notification
+              uses: tokorom/action-slack-incoming-webhook@main
+              env:
                     INCOMING_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-                with:
+              with:
                     text: ":heavy_check_mark: Build success - Deploy -  Server - TEST - Azure Web pps CI/CD. :heavy_check_mark:"
