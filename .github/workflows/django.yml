@@ -30,4 +30,5 @@ jobs:
               env:
                     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
               with:
+                    embed: "{'embeds': [{'author': {'name': {{ EVENT_PAYLOAD.sender.login }}, 'url': {{ EVENT_PAYLOAD.sender.html_url }}, 'icon_url': {{ EVENT_PAYLOAD.sender.avatar_url }}}, 'description': 'Your pizza is ready!\n:timer:ETA: 10 minutes.'}]}"
                     args: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been tested successfully. Sender: {{ EVENT_PAYLOAD.sender.login }}-{{ EVENT_PAYLOAD.sender.id }} Test"
